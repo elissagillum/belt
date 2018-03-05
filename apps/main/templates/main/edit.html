@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Update Appointment</title>
+</head>
+<body>
+
+<h4>All fields must be populated to update</h4>
+<form action="/update/{{appointments.id}}" method="POST">
+	{% csrf_token %}
+	<div>
+		<label for="task">Task:</label>
+		<input type="text" name="task" value="{{appointments.task}}">
+	</div>
+	<div>
+		<label for="task_status" value="{{appointments.task_status}}">Status:</label>
+	</div>
+		<select name="task_status">
+			<option value="{{appointments.task_status}}">{{appointments.task_status}}</option>
+		</select>
+	</div>
+	<div>
+        <label for="task_date">Date:</label>
+        <input type="date" name="task_date" value="{{appointments.task_date}}">
+    </div>
+    <div>
+        <label for="task_time">Time:</label>
+        <input type="time" name="task_time" values="{{appointments.task_time}}">
+    </div>
+    <input type="submit" value='Update'>
+</form>
+    <a href = "/success">Dashboard</a>
+    <a href = "/logout">Logout</a>
+
+</body>
+</html>
